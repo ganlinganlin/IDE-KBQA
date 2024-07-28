@@ -17,17 +17,7 @@
 - Create a environment
   ```
   conda create -n idekbqa python=3.8.8
-<<<<<<< HEAD
   conda activate idekbqa
-=======
-<<<<<<< HEAD
-  conda activate idekbqa
-=======
-  conda activate idekbqa 
-  sudo apt-get update
-  sudo apt-get install -y unixodbc-dev # 安装 Microsoft ODBC Driver for SQL Server (Linux)
->>>>>>> 145cb81 (first commit)
->>>>>>> bf0602a (first commit)
   pip install torch==1.13.1+cu117 torchvision==0.14.1+cu117 torchaudio==0.13.1 --extra-index-url https://download.pytorch.org/whl/cu117
   pip install -r requirement.txt
   ```
@@ -180,15 +170,7 @@ The following is an example of LLaMa2-13b fine-tuning and retrieval (num_beam = 
 - WebQSP
   - Train LLMs for Logical Form Generation (The checkpoint data will be saved as `Reading/logical-form-generation/WebQSP_Freebase_NQ_lora_epoch100/checkpoint/`)
   - Beam-setting LLMs for Logical Form Generation (The generated_predictions.jsonl will be saved as `Reading/logical-form-generation/WebQSP_Freebase_NQ_lora_epoch100/`)
-<<<<<<< HEAD
-  - Data processing (The beam_test_gen_statistics.json and beam_test_top_k_predictions.json will be saved as `Reading/logical-form-generation/WebQSP_Freebase_NQ_lora_epoch100/`)
-=======
-<<<<<<< HEAD
-  - Data processing (The beam_test_gen_statistics.json and beam_test_top_k_predictions.json will be saved as `Reading/logical-form-generation/WebQSP_Freebase_NQ_lora_epoch100/`)
-=======
   - Data processing (The beam_test_gen_statistics.json and beam_test_top_k_predictions.json will be saved as `Reading/logical-form-generation/WebQSP_Freebase_NQ_lora_epoch100/evaluation_beam8_WebQSP_Freebase_NQ_test/`)
->>>>>>> 145cb81 (first commit)
->>>>>>> bf0602a (first commit)
   ```
   CUDA_VISIBLE_DEVICES=0 nohup python -u LLMs/LLaMA/src/train_bash.py --stage sft --model_name_or_path meta-llama/Llama-2-13b-hf --do_train  --dataset_dir LLMs/data_sexpr --dataset WebQSP_Freebase_NQ_train --template llama2  --finetuning_type lora --lora_target q_proj,v_proj --output_dir Reading/logical-form-generation/WebQSP_Freebase_NQ_lora_epoch100/checkpoint --overwrite_cache --per_device_train_batch_size 4 --gradient_accumulation_steps 4  --lr_scheduler_type cosine --logging_steps 10 --save_steps 1000 --learning_rate 5e-5  --num_train_epochs 100.0  --quantization_bit 8 --plot_loss  --fp16 >> Sexpr_train_LLaMA2-13b_WebQSP_QLoRA_epoch100.txt 2>&1 &
   ```
@@ -202,15 +184,7 @@ The following is an example of LLaMa2-13b fine-tuning and retrieval (num_beam = 
 - CWQ
   - Train LLMs for Logical Form Generation (The checkpoint data will be saved as `Reading/logical-form-generation/CWQ_Freebase_NQ_lora_epoch10/checkpoint/`)
   - Beam-setting LLMs for Logical Form Generation (The generated_predictions.jsonl will be saved as `Reading/logical-form-generation/CWQ_Freebase_NQ_lora_epoch10/`)
-<<<<<<< HEAD
-  - Data processing (The beam_test_gen_statistics.json and beam_test_top_k_predictions.json will be saved as `Reading/logical-form-generation/CWQ_Freebase_NQ_lora_epoch10/`)
-=======
-<<<<<<< HEAD
-  - Data processing (The beam_test_gen_statistics.json and beam_test_top_k_predictions.json will be saved as `Reading/logical-form-generation/CWQ_Freebase_NQ_lora_epoch10/`)
-=======
   - Data processing (The beam_test_gen_statistics.json and beam_test_top_k_predictions.json will be saved as `Reading/logical-form-generation/CWQ_Freebase_NQ_lora_epoch10/evaluation_beam8_CWQ_Freebase_NQ_test/`)
->>>>>>> 145cb81 (first commit)
->>>>>>> bf0602a (first commit)
   ```
   CUDA_VISIBLE_DEVICES=1 nohup python -u LLMs/LLaMA/src/train_bash.py --stage sft --model_name_or_path meta-llama/Llama-2-13b-hf --do_train  --dataset_dir LLMs/data_sexpr --dataset CWQ_Freebase_NQ_train --template llama2  --finetuning_type lora --lora_target q_proj,v_proj --output_dir Reading/logical-form-generation/CWQ_Freebase_NQ_lora_epoch10/checkpoint --overwrite_cache --per_device_train_batch_size 4 --gradient_accumulation_steps 4  --lr_scheduler_type cosine --logging_steps 10 --save_steps 1000 --learning_rate 5e-5  --num_train_epochs 10.0 --quantization_bit 8 --plot_loss --fp16 >> Sexpr_train_LLaMA2-13b_CWQ_QLoRA_epoch10.txt 2>&1 &
   ```
@@ -228,50 +202,21 @@ The following is an example of LLaMa2-13b fine-tuning and retrieval (num_beam = 
 - WebQSP
   - Train LLMs for Intent Detection (The checkpoint data will be saved as `Reading/intent-detection/WebQSP_Freebase_NQ_lora_epoch100/checkpoint/`)
   - Beam-setting LLMs for Intent Detection (The generated_predictions.jsonl will be saved as `Reading/intent-detection/WebQSP_Freebase_NQ_lora_epoch100/`)
-<<<<<<< HEAD
-  - Data processing (The beam_test_gen_statistics.json and beam_test_top_k_predictions.json will be saved as `Reading/intent-detection/WebQSP_Freebase_NQ_lora_epoch100/`)
-=======
-<<<<<<< HEAD
-  - Data processing (The beam_test_gen_statistics.json and beam_test_top_k_predictions.json will be saved as `Reading/intent-detection/WebQSP_Freebase_NQ_lora_epoch100/`)
-=======
   - Data processing (The beam_test_gen_statistics.json and beam_test_top_k_predictions.json will be saved as `Reading/intent-detection/WebQSP_Freebase_NQ_lora_epoch100/evaluation_beam12_WebQSP_Freebase_NQ_test/`)
->>>>>>> 145cb81 (first commit)
->>>>>>> bf0602a (first commit)
   ```
   CUDA_VISIBLE_DEVICES=2 nohup python -u LLMs/LLaMA/src/train_bash.py --stage sft --model_name_or_path meta-llama/Llama-2-13b-hf --do_train  --dataset_dir LLMs/data_id --dataset WebQSP_Freebase_NQ_train --template llama2  --finetuning_type lora --lora_target q_proj,v_proj --output_dir Reading/intent-detection/WebQSP_Freebase_NQ_lora_epoch100/checkpoint --overwrite_cache --per_device_train_batch_size 4 --gradient_accumulation_steps 4  --lr_scheduler_type cosine --logging_steps 10 --save_steps 1000 --learning_rate 5e-5  --num_train_epochs 100.0 --quantization_bit 8 --plot_loss  --fp16 >> ID_train_LLaMA2-13b_WebQSP_QLoRA_epoch100.txt 2>&1 &
   ```
   ```
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> bf0602a (first commit)
-  CUDA_VISIBLE_DEVICES=2 nohup python -u LLMs/LLaMA/src/beam_output_eva_id.py --model_name_or_path meta-llama/Llama-2-13b-hf --dataset_dir LLMs/data_id --dataset WebQSP_Freebase_NQ_test --template llama2 --finetuning_type lora --checkpoint_dir Reading/intent-detection/WebQSP_Freebase_NQ_lora_epoch100/checkpoint --quantization_bit 8 --num_beams 10 >> ID_predbeam10_LLaMA2-13b_WebQSP_QLoRA_epoch100.txt 2>&1 &
-  ```
-  ```
-  python FT_generator.py --data_file_name Reading/intent-detection/WebQSP_Freebase_NQ_lora_epoch100/evaluation_beam10_WebQSP_Freebase_NQ_test/generated_predictions.jsonl
-<<<<<<< HEAD
-=======
-=======
   CUDA_VISIBLE_DEVICES=2 nohup python -u LLMs/LLaMA/src/beam_output_eva_id.py --model_name_or_path meta-llama/Llama-2-13b-hf --dataset_dir LLMs/data_id --dataset WebQSP_Freebase_NQ_test --template llama2 --finetuning_type lora --checkpoint_dir Reading/intent-detection/WebQSP_Freebase_NQ_lora_epoch100/checkpoint --quantization_bit 8 --num_beams 12 >> ID_predbeam12_LLaMA2-13b_WebQSP_QLoRA_epoch100.txt 2>&1 &
   ```
   ```
   python FT_generator.py --data_file_name Reading/intent-detection/WebQSP_Freebase_NQ_lora_epoch100/evaluation_beam12_WebQSP_Freebase_NQ_test/generated_predictions.jsonl
->>>>>>> 145cb81 (first commit)
->>>>>>> bf0602a (first commit)
   ```
 
 - CWQ
   - Train LLMs for Intent Detection (The checkpoint data will be saved as `Reading/intent-detection/CWQ_Freebase_NQ_lora_epoch10/checkpoint/`)
   - Beam-setting LLMs for Intent Detection (The generated_predictions.jsonl will be saved as `Reading/intent-detection/CWQ_Freebase_NQ_lora_epoch10/`)
-<<<<<<< HEAD
-  - Data processing (The beam_test_gen_statistics.json and beam_test_top_k_predictions.json will be saved as `Reading/intent-detection/CWQ_Freebase_NQ_lora_epoch10/`)
-=======
-<<<<<<< HEAD
-  - Data processing (The beam_test_gen_statistics.json and beam_test_top_k_predictions.json will be saved as `Reading/intent-detection/CWQ_Freebase_NQ_lora_epoch10/`)
-=======
   - Data processing (The beam_test_gen_statistics.json and beam_test_top_k_predictions.json will be saved as `Reading/intent-detection/CWQ_Freebase_NQ_lora_epoch10/evaluation_beam8_CWQ_Freebase_NQ_test/`)
->>>>>>> 145cb81 (first commit)
->>>>>>> bf0602a (first commit)
   ```
   CUDA_VISIBLE_DEVICES=3 nohup python -u LLMs/LLaMA/src/train_bash.py --stage sft --model_name_or_path meta-llama/Llama-2-13b-hf --do_train  --dataset_dir LLMs/data_id --dataset CWQ_Freebase_NQ_train --template llama2  --finetuning_type lora --lora_target q_proj,v_proj --output_dir Reading/intent-detection/CWQ_Freebase_NQ_lora_epoch10/checkpoint --overwrite_cache --per_device_train_batch_size 4 --gradient_accumulation_steps 4  --lr_scheduler_type cosine --logging_steps 10 --save_steps 1000 --learning_rate 5e-5  --num_train_epochs 10.0 --quantization_bit 8 --plot_loss  --fp16 >> ID_train_LLaMA2-13b_CWQ_QLoRA_epoch10.txt 2>&1 &
   ```
