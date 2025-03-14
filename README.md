@@ -311,4 +311,4 @@ The following is an example of LLaMa2-13b fine-tuning and retrieval (num_beam = 
 
 ## 6. Acknowledgement
 
-This repo benefits from [PEFT](https://github.com/huggingface/peft), [LLaMA-Efficient-Tuning](https://github.com/hiyouga/LLaMA-Efficient-Tuning), [SimCSE](https://github.com/princeton-nlp/SimCSE), [GMT-KBQA](https://github.com/HXX97/GMT-KBQA), [ChatKBQA](https://github.com/LHRLAB/ChatKBQA), [LLaMA-Factory](https://github.com/HXX97/GMT-KBQA) and [DECAF](https://github.com/hiyouga/LLaMA-Factory). Thanks for their wonderful works.
+This repo benefits from [PEFT](https://github.com/huggingface/peft), [LLaMA-Efficient-Tuning](https://github.com/hiyouga/LLaMA-Efficient-Tuning), [SimCSE](https://github.com/princeton-nlp/SimCSE), [GMT-KBQA](https://github.com/HXX97/GMT-KBQA), [ChatKBQA](https://github.com/LHRLAB/ChatKBQA), [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) and [DECAF](https://github.com/HXX97/GMT-KBQA). Thanks for their wonderful works.
